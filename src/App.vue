@@ -1,59 +1,35 @@
 <template>
-  <v-app>
-    
-
-    <v-app-bar
-    absolute
-      color="#6A76AB"
-      dark
-      shrink-on-scroll
-      prominent
-      src="https://picsum.photos/1920/1080?random"
-      fade-img-on-scroll
-      scroll-target="#scrolling-techniques-3"
-   
-      
-       
-    >
-      <template v-slot:img="{ props }">
-        <v-img
-          v-bind="props"
-        ></v-img>
-      </template>
-      <v-app-bar-title class="accent--text mx-4  font-weight-medium" style="width: 250px">Si-VERSE</v-app-bar-title>
-
-      <v-spacer></v-spacer>
-
-      <template v-slot:extension >
-        <v-tabs align-with-title>
-          <v-tab router to="/">Profile</v-tab>
-          <v-tab router to="/chat">Chat</v-tab>
-          <v-tab router to="/movie">Movie Recommendation</v-tab>
-          <v-tab router to="/todo">To Do</v-tab>
-          <v-tab router to="/blog">Blog</v-tab>
-        </v-tabs>
-      </template>
+  <v-app id="scrolling-techniques-3"
+      class="overflow-y-auto grey lighten-4"
+      max-height="600" >
+      <v-app-bar color="primary" dense app>
+      <v-toolbar-title class="accent--text mx-4 my-2 font-weight-medium" id="logo">Si-VERSE</v-toolbar-title>
     </v-app-bar>
+ 
 
-    <v-sheet
-      id="scrolling-techniques-3"
-      class="overflow-y-auto"
-      max-height="600"
-    >
-      <v-container style="height: 1600px;">
-        <router-view ></router-view>
+      <Header/>
+    
+  
+ <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+      <v-container style="height: 800px;" >
+        <v-content class="mx-4 mb-4">
+          <router-view></router-view>
+        </v-content>
       </v-container>
-      </v-sheet>
+
     
   </v-app>
 </template>
 
 
 <script>
+import Header from './components/Header.vue'
  
 export default {
   name: 'App',
   components: {
+    Header
   },
   data() {
     return {

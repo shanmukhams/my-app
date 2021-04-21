@@ -1,8 +1,13 @@
 <template>
-<div>
-      <Profile/>
+<div class="team">
+    <h1 class="subheading grey--text" fixed>Profile</h1>
 
+    <v-container class="my-5">
+      <Profile/>
+    </v-container>
+    
   </div>
+ 
   
 </template>
 
