@@ -12,7 +12,7 @@
 
        <template>
   <v-row justify="center">
-    <v-date-picker v-model="picker"></v-date-picker>
+    <v-date-picker  v-model="picker"></v-date-picker>
   </v-row>
 </template>
         <v-card-text>
@@ -26,7 +26,7 @@
                 :value="formattedDate" clearable label="Due date" prepend-icon="mdi-update">
                 </v-text-field>
                 </template>
-                <v-date-picker v-model="due" ></v-date-picker>
+                <v-date-picker flat v-model="due" ></v-date-picker>
                 
                 
             </v-menu>

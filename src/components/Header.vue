@@ -27,6 +27,7 @@
           <v-tab router to="/movie">Movie Recommendation</v-tab>
           <v-tab router to="/todo">To Do</v-tab>
           <v-tab router to="/blog">Blog</v-tab>
+          <v-tab router to="/game">Games</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>

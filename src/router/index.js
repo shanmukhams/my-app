@@ -5,6 +5,7 @@ import Chat from '../views/Chat'
 import Movie from '../views/Movie'
 import Blog from '../views/Blog'
 import Todo from '../views/Todo'
+import Game from '../views/Game'
 
 Vue.use(VueRouter)
 
@@ -34,6 +35,11 @@ const routes = [
     path: '/blog',
     name: 'Blog',
     component: Blog,
+  },
+  {
+    path: '/game',
+    name: 'Game',
+    component: Game,
   },
 
 ]

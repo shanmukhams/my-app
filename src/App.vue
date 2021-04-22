@@ -1,10 +1,10 @@
 <template>
   <v-app id="scrolling-techniques-3"
-      class="overflow-y-auto grey lighten-4"
+      class="overflow-y-auto"
       max-height="600" >
       <v-app-bar color="primary" dense app>
-      <v-toolbar-title class="accent--text mx-4 my-2 font-weight-medium" id="logo">Si-VERSE</v-toolbar-title>
-    </v-app-bar>
+        <v-toolbar-title class="accent--text mx-4 my-2 font-weight-medium" id="logo">Si-VERSE</v-toolbar-title>
+      </v-app-bar>
  
 
       <Header/>
@@ -50,7 +50,8 @@ export default {
 
 
   #app {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway';
+    
   }
 
 
