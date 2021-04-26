@@ -2,15 +2,13 @@
   <v-app id="scrolling-techniques-3"
       class="overflow-y-auto"
       max-height="600" >
-      <v-app-bar color="primary" dense app>
-        <v-toolbar-title class="accent--text mx-4 my-2 font-weight-medium" id="logo">Si-VERSE</v-toolbar-title>
-      </v-app-bar>
+     
  
 
       <Header/>
     
   
- <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 
       <v-container style="height: 800px;" >
         <v-content class="mx-4 mb-4">

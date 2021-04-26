@@ -1,10 +1,13 @@
 <template>
 <div class="team">
-    <h1 class="subheading grey--text" fixed>Profile</h1>
+  
+  <v-toolbar flat  style="position: relative;">
+    <h1 class="subheading grey--text">Profile</h1>
+  </v-toolbar>
 
     <v-container class="my-5" >
       
-       <v-card flat>
+      <v-card flat>
          
         <v-layout row wrap >
           <v-flex xs12>
@@ -24,7 +27,7 @@
                     <br/>
                     <br/>
                     <h3 class="font-22 capitalize ">Hallo!</h3>
-                    <p class="font-16 line-height-28"> On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by th charms of pleasure of the moment, so blinded by desire, tht they cannot foresee the pain and trouble that are</p>
+                    <p class="font-16 line-height-28">{{profileData.about}}</p>
                     <v-btn class="ma-2" dark><v-icon dark left>mdi-download</v-icon>Download CV</v-btn>
                   
                   </v-flex>
@@ -53,20 +56,77 @@
                 <v-layout row wrap>
                   <v-flex xs12>
                     <v-card flat>
-                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">EXPERIENCE</h2></v-card-title>
+                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">WORK EXPERIENCE</h2></v-card-title>
                       <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
                     </v-card>
                   </v-flex>
                 </v-layout>
 
-                <v-layout row wrap class="mt-15" align="center">
+                <v-layout row wrap class="mt-15" align="left">
                   <v-flex xs12>
                    <v-timeline
                       
-                      :dense="$vuetify.breakpoint.smAndDown"
+                      dense
                     >
                       <v-timeline-item right
-                        v-for="n in 2"
+                        v-for="e in profileData.expereince"
+                        :key="e.title"
+                      >
+                        <span slot="opposite">{{e.startdate}} - {{e.enddate}}</span>
+                        <v-expansion-panels flat>
+                          <v-expansion-panel >
+                            <v-expansion-panel-header >
+                              <v-layout row wrap >
+                              
+                                <v-flex xs12 md12>
+                                <div class="caption grey--text">{{e.company}}</div>
+                                <div>{{e.title}}</div>
+                                </v-flex>
+                              </v-layout>
+                            </v-expansion-panel-header>
+                            <v-expansion-panel-content> <div>{{e.description}}</div>
+                            </v-expansion-panel-content>
+                            <v-divider class="mt-3"></v-divider>
+                          </v-expansion-panel>
+                          
+                        </v-expansion-panels>
+                      </v-timeline-item>
+                    </v-timeline>
+            
+                  
+                  </v-flex>
+                  
+                </v-layout>
+              </v-container>
+            </v-card>
+          </v-flex>
+         
+        </v-layout>
+      </v-card>
+
+      <v-card flat>
+         
+        <v-layout row wrap >
+          <v-flex xs12>
+            <v-card flat class="light-bg">
+              <v-container>
+                <v-layout row wrap>
+                  <v-flex xs12>
+                    <v-card flat>
+                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">SKILLS</h2></v-card-title>
+                      <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
+                    </v-card>
+                  </v-flex>
+                </v-layout>
+
+                <v-layout row wrap class="mt-15" align="left">
+                  <v-flex xs12>
+                   <v-timeline
+                      
+                      dense
+                    >
+                      <v-timeline-item right
+                        v-for="n in 4"
                         :key="n"
                       >
                         <span slot="opposite">Tus eu perfecto</span>
@@ -79,9 +139,6 @@
                                 <div class="caption grey--text">Infosys Limited</div>
                                 <div>Sr. Software Developer</div>
                                 </v-flex>
-
-                               
-                                
                               </v-layout>
                             </v-expansion-panel-header>
                             <v-expansion-panel-content> <div>JAVA, C#</div>
@@ -103,8 +160,295 @@
          
         </v-layout>
       </v-card>
+
+      <v-card flat>
+         
+        <v-layout row wrap >
+          <v-flex xs12>
+            <v-card flat class="light-bg">
+              <v-container>
+                <v-layout row wrap>
+                  <v-flex xs12>
+                    <v-card flat>
+                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">EDUCATION</h2></v-card-title>
+                      <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
+                    </v-card>
+                  </v-flex>
+                </v-layout>
+
+                <v-layout row wrap class="mt-15" align="left">
+                  <v-flex xs12>
+                   <v-timeline
+                      
+                      dense
+                    >
+                      <v-timeline-item right
+                        v-for="n in 4"
+                        :key="n"
+                      >
+                        <span slot="opposite">Tus eu perfecto</span>
+                        <v-expansion-panels flat>
+                          <v-expansion-panel >
+                            <v-expansion-panel-header >
+                              <v-layout row wrap >
+                              
+                                <v-flex xs12 md12>
+                                <div class="caption grey--text">Infosys Limited</div>
+                                <div>Sr. Software Developer</div>
+                                </v-flex>
+                              </v-layout>
+                            </v-expansion-panel-header>
+                            <v-expansion-panel-content> <div>JAVA, C#</div>
+                            </v-expansion-panel-content>
+                            <v-divider class="mt-3"></v-divider>
+                          </v-expansion-panel>
+                          
+                        </v-expansion-panels>
+                      </v-timeline-item>
+                    </v-timeline>
+            
+                  
+                  </v-flex>
+                  
+                </v-layout>
+              </v-container>
+            </v-card>
+          </v-flex>
+         
+        </v-layout>
+      </v-card>
+
+      <v-card flat>
+         
+        <v-layout row wrap >
+          <v-flex xs12>
+            <v-card flat class="light-bg">
+              <v-container>
+                <v-layout row wrap>
+                  <v-flex xs12>
+                    <v-card flat>
+                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">COURSES, TRAININGS & CERTIFICATION</h2></v-card-title>
+                      <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
+                    </v-card>
+                  </v-flex>
+                </v-layout>
+
+                <v-layout row wrap class="mt-15" align="left">
+                  <v-flex xs12>
+                   <v-timeline
+                      
+                      dense
+                    >
+                      <v-timeline-item right
+                        v-for="n in 4"
+                        :key="n"
+                      >
+                        <span slot="opposite">Tus eu perfecto</span>
+                        <v-expansion-panels flat>
+                          <v-expansion-panel >
+                            <v-expansion-panel-header >
+                              <v-layout row wrap >
+                              
+                                <v-flex xs12 md12>
+                                <div class="caption grey--text">Infosys Limited</div>
+                                <div>Sr. Software Developer</div>
+                                </v-flex>
+                              </v-layout>
+                            </v-expansion-panel-header>
+                            <v-expansion-panel-content> <div>JAVA, C#</div>
+                            </v-expansion-panel-content>
+                            <v-divider class="mt-3"></v-divider>
+                          </v-expansion-panel>
+                          
+                        </v-expansion-panels>
+                      </v-timeline-item>
+                    </v-timeline>
+            
+                  
+                  </v-flex>
+                  
+                </v-layout>
+              </v-container>
+            </v-card>
+          </v-flex>
+         
+        </v-layout>
+      </v-card>
+
+
+      <v-card flat>
+         
+        <v-layout row wrap >
+          <v-flex xs12>
+            <v-card flat class="light-bg">
+              <v-container>
+                <v-layout row wrap>
+                  <v-flex xs12>
+                    <v-card flat>
+                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">PROJECTS</h2></v-card-title>
+                      <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
+                    </v-card>
+                  </v-flex>
+                </v-layout>
+
+                <v-layout row wrap class="mt-15" align="left">
+                  <v-flex xs12>
+                   <v-timeline
+                      
+                      dense
+                    >
+                      <v-timeline-item right
+                        v-for="n in 4"
+                        :key="n"
+                      >
+                        <span slot="opposite">Tus eu perfecto</span>
+                        <v-expansion-panels flat>
+                          <v-expansion-panel >
+                            <v-expansion-panel-header >
+                              <v-layout row wrap >
+                              
+                                <v-flex xs12 md12>
+                                <div class="caption grey--text">Infosys Limited</div>
+                                <div>Sr. Software Developer</div>
+                                </v-flex>
+                              </v-layout>
+                            </v-expansion-panel-header>
+                            <v-expansion-panel-content> <div>JAVA, C#</div>
+                            </v-expansion-panel-content>
+                            <v-divider class="mt-3"></v-divider>
+                          </v-expansion-panel>
+                          
+                        </v-expansion-panels>
+                      </v-timeline-item>
+                    </v-timeline>
+            
+                  
+                  </v-flex>
+                  
+                </v-layout>
+              </v-container>
+            </v-card>
+          </v-flex>
+         
+        </v-layout>
+      </v-card>
+
+      <v-card flat>
+         
+        <v-layout row wrap >
+          <v-flex xs12>
+            <v-card flat class="light-bg">
+              <v-container>
+                <v-layout row wrap>
+                  <v-flex xs12>
+                    <v-card flat>
+                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">AWARDS & ACHIEVEMENTS</h2></v-card-title>
+                      <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
+                    </v-card>
+                  </v-flex>
+                </v-layout>
+
+                <v-layout row wrap class="mt-15" align="left">
+                  <v-flex xs12>
+                   <v-timeline
+                      
+                      dense
+                    >
+                      <v-timeline-item right
+                        v-for="n in 4"
+                        :key="n"
+                      >
+                        <span slot="opposite">Tus eu perfecto</span>
+                        <v-expansion-panels flat>
+                          <v-expansion-panel >
+                            <v-expansion-panel-header >
+                              <v-layout row wrap >
+                              
+                                <v-flex xs12 md12>
+                                <div class="caption grey--text">Infosys Limited</div>
+                                <div>Sr. Software Developer</div>
+                                </v-flex>
+                              </v-layout>
+                            </v-expansion-panel-header>
+                            <v-expansion-panel-content> <div>JAVA, C#</div>
+                            </v-expansion-panel-content>
+                            <v-divider class="mt-3"></v-divider>
+                          </v-expansion-panel>
+                          
+                        </v-expansion-panels>
+                      </v-timeline-item>
+                    </v-timeline>
+            
+                  
+                  </v-flex>
+                  
+                </v-layout>
+              </v-container>
+            </v-card>
+          </v-flex>
+         
+        </v-layout>
+      </v-card>
+
+      <v-card flat>
+         
+        <v-layout row wrap >
+          <v-flex xs12>
+            <v-card flat class="light-bg">
+              <v-container>
+                <v-layout row wrap>
+                  <v-flex xs12>
+                    <v-card flat>
+                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">EXTRA-CURICULAR ACTIVITIES</h2></v-card-title>
+                      <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
+                    </v-card>
+                  </v-flex>
+                </v-layout>
+
+                <v-layout row wrap class="mt-15" align="left">
+                  <v-flex xs12>
+                   <v-timeline
+                      
+                      dense
+                    >
+                      <v-timeline-item right
+                        v-for="n in 4"
+                        :key="n"
+                      >
+                        <span slot="opposite">Tus eu perfecto</span>
+                        <v-expansion-panels flat>
+                          <v-expansion-panel >
+                            <v-expansion-panel-header >
+                              <v-layout row wrap >
+                              
+                                <v-flex xs12 md12>
+                                <div class="caption grey--text">Infosys Limited</div>
+                                <div>Sr. Software Developer</div>
+                                </v-flex>
+                              </v-layout>
+                            </v-expansion-panel-header>
+                            <v-expansion-panel-content> <div>JAVA, C#</div>
+                            </v-expansion-panel-content>
+                            <v-divider class="mt-3"></v-divider>
+                          </v-expansion-panel>
+                          
+                        </v-expansion-panels>
+                      </v-timeline-item>
+                    </v-timeline>
+            
+                  
+                  </v-flex>
+                  
+                </v-layout>
+              </v-container>
+            </v-card>
+          </v-flex>
+         
+        </v-layout>
+      </v-card>
+
     </v-container>
-    <Profile/>
+    
   </div>
  
   
@@ -112,21 +456,33 @@
 
 <script>
 
-import Profile from '../components/Profile'
+
 
 
 export default {
   name: 'Home',
   components: {
-    Profile
+    
     
   },
   props: {
       },
   data() {
     return {
+      profileData:{}
 
     }
+  },
+   methods:{
+    async fetchRegisters(){
+      const res = await fetch('http://localhost:3000/profile')
+      var data = await res.json() 
+      return data
+    }
+  },
+  async created() {
+    this.profileData = await this.fetchRegisters()
+   
   },
   
 }
