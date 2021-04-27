@@ -277,29 +277,58 @@
                   </v-flex>
                 </v-layout>
 
-                <v-layout row wrap class="mt-15" align="left">
+            <v-layout row wrap class="mt-15" align="left">
                   <v-flex xs12>
                    <v-timeline
                       
                       dense
                     >
                       <v-timeline-item right
-                        v-for="n in 4"
-                        :key="n"
+                        v-for="e in profileData.courses"
+                        :key="e.school"
                       >
-                        <span slot="opposite">Tus eu perfecto</span>
+                        <span slot="opposite" style="font-size: small;">{{e.startdate}} - {{e.enddate}}</span>
                         <v-expansion-panels flat>
                           <v-expansion-panel >
                             <v-expansion-panel-header >
                               <v-layout row wrap >
                               
-                                <v-flex xs12 md12>
-                                <div class="caption grey--text">Infosys Limited</div>
-                                <div>Sr. Software Developer</div>
+                                <v-flex xs8 md8>
+                                <div class="caption grey--text">{{e.instructor}} at {{e.institute}}</div>
+                                <div>{{e.name}}</div>
                                 </v-flex>
+                                
                               </v-layout>
                             </v-expansion-panel-header>
-                            <v-expansion-panel-content> <div>JAVA, C#</div>
+                            <v-expansion-panel-content> <div>
+                                <v-layout row wrap >
+                              
+                                <v-flex xs12 md12>
+                             
+                                <v-list dense>
+                                  <v-subheader>Focus Areas</v-subheader>
+                                  <v-list-item-group
+                                    v-model="selectedItem"
+                                    color="primary"
+                                  >
+                                    <v-list-item
+                                      v-for="i in e.topics"
+                                      :key="i"
+                                    >
+                                      <v-list-item-icon>
+                                        <v-icon small>mdi-chevron-right</v-icon>
+                                      </v-list-item-icon>
+                                      <v-list-item-content>
+                                        <v-list-item-title >{{i}}</v-list-item-title>
+                                        
+                                        
+                                      </v-list-item-content>
+                                    </v-list-item>
+                                  </v-list-item-group>
+                                </v-list>
+                             </v-flex>
+                              </v-layout>
+                            </div>
                             </v-expansion-panel-content>
                             <v-divider class="mt-3"></v-divider>
                           </v-expansion-panel>
@@ -319,8 +348,7 @@
         </v-layout>
       </v-card>
 
-
-      <v-card flat>
+      <v-card flat class="pt-8">
          
         <v-layout row wrap >
           <v-flex xs12>
@@ -335,29 +363,58 @@
                   </v-flex>
                 </v-layout>
 
-                <v-layout row wrap class="mt-15" align="left">
+            <v-layout row wrap class="mt-15" align="left">
                   <v-flex xs12>
                    <v-timeline
                       
                       dense
                     >
                       <v-timeline-item right
-                        v-for="n in 4"
-                        :key="n"
+                        v-for="e in profileData.projects"
+                        :key="e.school"
                       >
-                        <span slot="opposite">Tus eu perfecto</span>
+                        <span slot="opposite" style="font-size: small;">{{e.startdate}} - {{e.enddate}}</span>
                         <v-expansion-panels flat>
                           <v-expansion-panel >
                             <v-expansion-panel-header >
                               <v-layout row wrap >
                               
-                                <v-flex xs12 md12>
-                                <div class="caption grey--text">Infosys Limited</div>
-                                <div>Sr. Software Developer</div>
+                                <v-flex xs8 md8>
+                                <div class="caption grey--text">{{e.technology}}</div>
+                                <div>{{e.name}}</div>
                                 </v-flex>
+                                
                               </v-layout>
                             </v-expansion-panel-header>
-                            <v-expansion-panel-content> <div>JAVA, C#</div>
+                            <v-expansion-panel-content> <div>
+                                <v-layout row wrap >
+                              
+                                <v-flex xs12 md12>
+                             
+                                <v-list dense>
+                                  <v-subheader>Tasks</v-subheader>
+                                  <v-list-item-group
+                                    v-model="selectedItem"
+                                    color="primary"
+                                  >
+                                    <v-list-item
+                                      v-for="i in e.topics"
+                                      :key="i"
+                                    >
+                                      <v-list-item-icon>
+                                        <v-icon small>mdi-chevron-right</v-icon>
+                                      </v-list-item-icon>
+                                      <v-list-item-content>
+                                        <v-list-item-title >{{i}}</v-list-item-title>
+                                        
+                                        
+                                      </v-list-item-content>
+                                    </v-list-item>
+                                  </v-list-item-group>
+                                </v-list>
+                             </v-flex>
+                              </v-layout>
+                            </div>
                             </v-expansion-panel-content>
                             <v-divider class="mt-3"></v-divider>
                           </v-expansion-panel>
@@ -377,7 +434,7 @@
         </v-layout>
       </v-card>
 
-      <v-card flat>
+      <v-card flat class="pt-8">
          
         <v-layout row wrap >
           <v-flex xs12>
@@ -392,30 +449,29 @@
                   </v-flex>
                 </v-layout>
 
-                <v-layout row wrap class="mt-15" align="left">
+            <v-layout row wrap class="mt-15" align="left">
                   <v-flex xs12>
                    <v-timeline
                       
                       dense
                     >
-                      <v-timeline-item right
-                        v-for="n in 4"
-                        :key="n"
+                      <v-timeline-item left
+                        v-for="e in profileData.awards"
+                        :key="e.name"
                       >
-                        <span slot="opposite">Tus eu perfecto</span>
+                        <span slot="opposite" style="font-size: small;">{{e.year}}</span>
                         <v-expansion-panels flat>
                           <v-expansion-panel >
                             <v-expansion-panel-header >
                               <v-layout row wrap >
                               
                                 <v-flex xs12 md12>
-                                <div class="caption grey--text">Infosys Limited</div>
-                                <div>Sr. Software Developer</div>
+                                <div>{{e.name}}</div>
                                 </v-flex>
+                                
                               </v-layout>
                             </v-expansion-panel-header>
-                            <v-expansion-panel-content> <div>JAVA, C#</div>
-                            </v-expansion-panel-content>
+                            
                             <v-divider class="mt-3"></v-divider>
                           </v-expansion-panel>
                           
@@ -434,7 +490,11 @@
         </v-layout>
       </v-card>
 
-      <v-card flat>
+     
+
+      
+
+      <v-card flat class="pt-8">
          
         <v-layout row wrap >
           <v-flex xs12>
@@ -448,41 +508,14 @@
                     </v-card>
                   </v-flex>
                 </v-layout>
-
-                <v-layout row wrap class="mt-15" align="left">
-                  <v-flex xs12>
-                   <v-timeline
-                      
-                      dense
-                    >
-                      <v-timeline-item right
-                        v-for="n in 4"
-                        :key="n"
-                      >
-                        <span slot="opposite">Tus eu perfecto</span>
-                        <v-expansion-panels flat>
-                          <v-expansion-panel >
-                            <v-expansion-panel-header >
-                              <v-layout row wrap >
+                <v-layout row wrap class="mt-15" align="center">
+                        <v-flex xs12 md6 >
+                           <div v-for="(skill, index) in profileData.activities" :key="index">
                               
-                                <v-flex xs12 md12>
-                                <div class="caption grey--text">Infosys Limited</div>
-                                <div>Sr. Software Developer</div>
-                                </v-flex>
-                              </v-layout>
-                            </v-expansion-panel-header>
-                            <v-expansion-panel-content> <div>JAVA, C#</div>
-                            </v-expansion-panel-content>
-                            <v-divider class="mt-3"></v-divider>
-                          </v-expansion-panel>
-                          
-                        </v-expansion-panels>
-                      </v-timeline-item>
-                    </v-timeline>
-            
-                  
-                  </v-flex>
-                  
+                                <div class="mb-4">{{skill.name}}</div>
+                          </div>
+                        </v-flex>
+                        
                 </v-layout>
               </v-container>
             </v-card>
@@ -519,7 +552,7 @@ export default {
   },
    methods:{
     async fetchRegisters(){
-      const res = await fetch('http://localhost:3000/profile')
+      const res = await fetch('http://10.54.79.34:3000/profile')
       var data = await res.json() 
       return data
     }
