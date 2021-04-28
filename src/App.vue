@@ -10,11 +10,13 @@
   
 
 
-      <v-container style="height: 800px;" >
+      <v-container  >
         <v-content class="mx-4 mb-4">
           <router-view></router-view>
         </v-content>
       </v-container>
+
+      <Footer/>
 
     
   </v-app>
@@ -23,11 +25,13 @@
 
 <script>
 import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
  
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Footer
   },
   data() {
     return {

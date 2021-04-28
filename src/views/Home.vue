@@ -25,10 +25,28 @@
                 <v-layout row wrap class="mt-15" align="center">
                   <v-flex xs12 md8 >
                     <br/>
-                    <br/>
                     <h3 class="font-22 capitalize ">Hallo!</h3>
                     <p class="font-16 line-height-28">{{profileData.about}}</p>
-                    <v-btn class="ma-2" dark><v-icon dark left>mdi-download</v-icon>Download CV</v-btn>
+                   
+                    <v-card-title class="justify-center">
+                      <v-btn
+                        v-for="i in profileData.contacts"
+                        :key="i.icon"
+                        class="mx-6 grey--text"
+                        icon
+                        target="_blank"
+                        :href="i.url"
+                         
+                      >
+                        <v-icon size="24px">
+                          {{ i.icon }}
+                        </v-icon>
+                        {{i.number}}
+                      </v-btn>
+                    </v-card-title>
+
+                    <v-btn class="ma-2" dark target="_blank"
+                        :href="profileData.cv"><v-icon dark left>mdi-download</v-icon>Download CV</v-btn>
                   
                   </v-flex>
                   <v-flex xs12 md4>
@@ -509,11 +527,29 @@
                   </v-flex>
                 </v-layout>
                 <v-layout row wrap class="mt-15" align="center">
-                        <v-flex xs12 md6 >
-                           <div v-for="(skill, index) in profileData.activities" :key="index">
-                              
-                                <div class="mb-4">{{skill.name}}</div>
-                          </div>
+                        <v-flex xs12 md12 >
+                           
+                           <v-list dense>
+                                 
+                                  <v-list-item-group
+                                    v-model="selectedItem"
+                                    color="primary"
+                                  >
+                                    <v-list-item
+                                      v-for="i in profileData.activities"
+                                      :key="i"
+                                    >
+                                      <v-list-item-icon>
+                                        <v-icon small>mdi-chevron-right</v-icon>
+                                      </v-list-item-icon>
+                                      <v-list-item-content>
+                                        {{i.name}}
+                                        
+                                        
+                                      </v-list-item-content>
+                                    </v-list-item>
+                                  </v-list-item-group>
+                                </v-list>
                         </v-flex>
                         
                 </v-layout>
@@ -523,10 +559,11 @@
          
         </v-layout>
       </v-card>
-
+ 
     </v-container>
-    
+   <br/><br/><br/><br/><br/>
   </div>
+
  
   
 </template>
@@ -539,7 +576,7 @@
 export default {
   name: 'Home',
   components: {
-    
+
     
   },
   props: {

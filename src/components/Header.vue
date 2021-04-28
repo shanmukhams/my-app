@@ -8,28 +8,36 @@
       :src="`${this.$route.path}.jpg`"
       fade-img-on-scroll
       height="250"
-      
+      prominent 
       app
       
     >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
+          
         ></v-img>
       </template>
       
       <v-toolbar class="primary"  height="50px">
         <v-toolbar-title class="mx-6 pb-2 accent--text font-weight-medium">Si-VERSE</v-toolbar-title>
+        <br/>
+         
+                                 
+                                
+                                
         
-        </v-toolbar>
 
-        <br/><br/><br/><br/>
       
+      </v-toolbar>
+        
+       
        
 
 
 
       <template v-slot:extension >
+      
         <v-tabs align-with-title >
           <v-tab router to="/profile" >Profile</v-tab>
           <v-tab router to="/chat" >Chat</v-tab>
