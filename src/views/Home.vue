@@ -2,10 +2,10 @@
 <div class="team">
   
   <v-toolbar flat  style="position: relative;">
-    <h1 class="subheading grey--text">Profile</h1>
+    <h2 class="subheading grey--text">Profile</h2>
   </v-toolbar>
 
-    <v-container class="my-5" >
+    <v-container >
       
       <v-card flat>
          
@@ -16,17 +16,18 @@
                 <v-layout row wrap>
                   <v-flex xs12>
                     <v-card flat>
-                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">ABOUT ME</h2></v-card-title>
+                        <div class="h2p  primary--text" style="text-align: center;">ABOUT ME</div>
+                        
                       <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
                     </v-card>
                   </v-flex>
                 </v-layout>
 
-                <v-layout row wrap class="mt-15" align="center">
+                <v-layout row wrap class="" align="center">
                   <v-flex xs12 md8 >
                     <br/>
                     <h3 class="font-22 capitalize ">Hallo!</h3>
-                    <p class="font-16 line-height-28">{{profileData.about}}</p>
+                    <p class=" font-16 line-height-28">{{profileData.about}}</p>
                    
                     <v-card-title class="justify-center">
                       <v-btn
@@ -45,13 +46,13 @@
                       </v-btn>
                     </v-card-title>
 
-                    <v-btn class="ma-2" dark target="_blank"
+                    <v-btn :class="$vuetify.breakpoint.xs ? 'mb-4 ml-16':'mb-4'" dark target="_blank"
                         :href="profileData.cv"><v-icon dark left>mdi-download</v-icon>Download CV</v-btn>
                   
                   </v-flex>
                   <v-flex xs12 md4>
-                    <v-container class="ml-16">
-                    <v-avatar size="300" class="ml-16">
+                    <v-container >
+                    <v-avatar size="200" class="ml-10">
                       <img src="/final.jpg"/>
                     </v-avatar>
                     </v-container>
@@ -65,7 +66,7 @@
         </v-layout>
       </v-card>
 
-      <v-card flat>
+      <v-card flat class="mt-5">
          
         <v-layout row wrap >
           <v-flex xs12>
@@ -74,13 +75,13 @@
                 <v-layout row wrap>
                   <v-flex xs12>
                     <v-card flat>
-                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">WORK EXPERIENCE</h2></v-card-title>
+                      <div class="h2p  primary--text" style="text-align: center;">WORK EXPERIENCE</div>
                       <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
                     </v-card>
                   </v-flex>
                 </v-layout>
 
-                <v-layout row wrap class="mt-15" align="left">
+                <v-layout  row wrap :class="$vuetify.breakpoint.xs ? 'mt-7' : 'mt-15'" align="left">
                   <v-flex xs12>
                    <v-timeline
                       
@@ -90,19 +91,20 @@
                         v-for="e in profileData.expereince"
                         :key="e.title"
                       >
-                        <span slot="opposite" style="font-size: small;">{{e.startdate}} - {{e.enddate}}</span>
+                        <span :slot="$vuetify.breakpoint.xs ? '' : 'opposite'" style="font-size: small;">{{e.startdate}} - {{e.enddate}}</span>
                         <v-expansion-panels flat>
                           <v-expansion-panel >
                             <v-expansion-panel-header >
                               <v-layout row wrap >
                               
-                                <v-flex xs8 md8>
+                                <v-flex xs12 md8>
                                 <div class="caption grey--text">{{e.company}}</div>
                                 <div>{{e.title}}</div>
                                 </v-flex>
-                                <v-flex xs4 md4>
-                                <div class="caption grey--text mb-2"><v-icon small class="mr-2">mdi-map-marker-radius</v-icon>{{e.location}}</div>
+                                <v-flex xs12 md4>
+                                <div class="caption grey--text my-2"><v-icon small class="mr-2">mdi-map-marker-radius</v-icon>{{e.location}}</div>
                                 <div><v-icon small class="mr-2">mdi-briefcase</v-icon>{{e.type}}</div>
+                                <div v-show="$vuetify.breakpoint.xs" class="mt-2 mb-4" style="font-size: small;"><v-icon small class="mr-2 "> mdi-calendar</v-icon>{{e.startdate}} - {{e.enddate}}</div>
                                 </v-flex>
                               </v-layout>
                             </v-expansion-panel-header>
@@ -163,20 +165,20 @@
                 <v-layout row wrap>
                   <v-flex xs12>
                     <v-card flat>
-                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">SKILLS</h2></v-card-title>
+                      <div class="h2p  primary--text" style="text-align: center;">SKILLS</div>
                       <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
                     </v-card>
                   </v-flex>
                 </v-layout>
 
-                 <v-layout row wrap class="mt-15" align="center">
-                        <v-flex xs12 md6 style="border-right: 2px solid #116466">
+                 <v-layout  row wrap :class="$vuetify.breakpoint.xs ? 'mt-7' : 'mt-15'" align="center">
+                        <v-flex xs12 md6 :class=" $vuetify.breakpoint.xs ? 'pl-2' : '' " :style="$vuetify.breakpoint.xs ? '' :'border-right: 2px solid #116466'">
                            <div v-for="(skill, index) in profileData.skills1" :key="index">
                               <div class="caption grey--text mt-2 ">{{skill.name}}</div>
                                 <div class="mb-4">{{skill.info}}</div>
                           </div>
                         </v-flex>
-                        <v-flex xs12 md6 class="pl-8">
+                        <v-flex xs12 md6 :class="$vuetify.breakpoint.xs ? 'pl-2' : 'pl-8'">
                          
                            <div v-for="(skill, index) in profileData.skills2" :key="index">
                               <div class="caption grey--text mt-2 ">{{skill.name}}</div>
@@ -200,13 +202,13 @@
                 <v-layout row wrap>
                   <v-flex xs12>
                     <v-card flat>
-                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">EDUCATION</h2></v-card-title>
+                      <div class="h2p  primary--text" style="text-align: center;">EDUCATION</div>
                       <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
                     </v-card>
                   </v-flex>
                 </v-layout>
 
-            <v-layout row wrap class="mt-15" align="left">
+            <v-layout  row wrap :class="$vuetify.breakpoint.xs ? 'mt-7' : 'mt-15'" align="left">
                   <v-flex xs12>
                    <v-timeline
                       
@@ -216,19 +218,19 @@
                         v-for="e in profileData.education"
                         :key="e.school"
                       >
-                        <span slot="opposite" style="font-size: small;">{{e.startdate}} - {{e.enddate}}</span>
+                        <span :slot="$vuetify.breakpoint.xs ? '' : 'opposite'" style="font-size: small;">{{e.startdate}} - {{e.enddate}}</span>
                         <v-expansion-panels flat>
                           <v-expansion-panel >
                             <v-expansion-panel-header >
                               <v-layout row wrap >
                               
-                                <v-flex xs8 md8>
+                                <v-flex xs12 md8>
                                 <div class="caption grey--text">{{e.school}}</div>
                                 <div>{{e.degree}}</div>
                                 </v-flex>
-                                <v-flex xs4 md4>
-                                <div class="caption grey--text mb-2"><v-icon small class="mr-2">mdi-map-marker-radius</v-icon>{{e.location}}</div>
-                             
+                                <v-flex xs12 md4>
+                                <div class="caption grey--text my-2"><v-icon small class="mr-2">mdi-map-marker-radius</v-icon>{{e.location}}</div>
+                              <div v-show="$vuetify.breakpoint.xs" class="mt-2 mb-4" style="font-size: small;"><v-icon small class="mr-2 "> mdi-calendar</v-icon>{{e.startdate}} - {{e.enddate}}</div>
                                 </v-flex>
                               </v-layout>
                             </v-expansion-panel-header>
@@ -289,13 +291,13 @@
                 <v-layout row wrap>
                   <v-flex xs12>
                     <v-card flat>
-                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">COURSES, TRAININGS & CERTIFICATION</h2></v-card-title>
+                      <div class="h2p  primary--text" style="text-align: center;">COURSES, TRAININGS & CERTIFICATION</div>
                       <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
                     </v-card>
                   </v-flex>
                 </v-layout>
 
-            <v-layout row wrap class="mt-15" align="left">
+            <v-layout  row wrap :class="$vuetify.breakpoint.xs ? 'mt-7' : 'mt-15'" align="left">
                   <v-flex xs12>
                    <v-timeline
                       
@@ -305,17 +307,19 @@
                         v-for="e in profileData.courses"
                         :key="e.school"
                       >
-                        <span slot="opposite" style="font-size: small;">{{e.startdate}} - {{e.enddate}}</span>
+                        <span :slot="$vuetify.breakpoint.xs ? '' : 'opposite'" style="font-size: small;">{{e.startdate}} - {{e.enddate}}</span>
                         <v-expansion-panels flat>
                           <v-expansion-panel >
                             <v-expansion-panel-header >
                               <v-layout row wrap >
                               
-                                <v-flex xs8 md8>
+                                <v-flex xs12 md8>
                                 <div class="caption grey--text">{{e.instructor}} at {{e.institute}}</div>
                                 <div>{{e.name}}</div>
                                 </v-flex>
-                                
+                                <v-flex xs12 md1>
+                                <div v-show="$vuetify.breakpoint.xs" class="mt-2 mb-4" style="font-size: small;"><v-icon small class="mr-2 "> mdi-calendar</v-icon>{{e.startdate}} - {{e.enddate}}</div>
+                                </v-flex>
                               </v-layout>
                             </v-expansion-panel-header>
                             <v-expansion-panel-content> <div>
@@ -375,13 +379,13 @@
                 <v-layout row wrap>
                   <v-flex xs12>
                     <v-card flat>
-                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">PROJECTS</h2></v-card-title>
+                      <div class="h2p  primary--text" style="text-align: center;">PROJECTS</div>
                       <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
                     </v-card>
                   </v-flex>
                 </v-layout>
 
-            <v-layout row wrap class="mt-15" align="left">
+            <v-layout  row wrap :class="$vuetify.breakpoint.xs ? 'mt-7' : 'mt-15'" align="left">
                   <v-flex xs12>
                    <v-timeline
                       
@@ -391,15 +395,18 @@
                         v-for="e in profileData.projects"
                         :key="e.school"
                       >
-                        <span slot="opposite" style="font-size: small;">{{e.startdate}} - {{e.enddate}}</span>
+                        <span :slot="$vuetify.breakpoint.xs ? '' : 'opposite'" style="font-size: small;">{{e.startdate}} - {{e.enddate}}</span>
                         <v-expansion-panels flat>
                           <v-expansion-panel >
                             <v-expansion-panel-header >
                               <v-layout row wrap >
                               
-                                <v-flex xs8 md8>
+                                <v-flex xs12 md8>
                                 <div class="caption grey--text">{{e.technology}}</div>
                                 <div>{{e.name}}</div>
+                                </v-flex>
+                                <v-flex xs12 md1>
+                                <div v-show="$vuetify.breakpoint.xs" class="mt-2 mb-4" style="font-size: small;"><v-icon small class="mr-2 "> mdi-calendar</v-icon>{{e.startdate}} - {{e.enddate}}</div>
                                 </v-flex>
                                 
                               </v-layout>
@@ -461,13 +468,13 @@
                 <v-layout row wrap>
                   <v-flex xs12>
                     <v-card flat>
-                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">AWARDS & ACHIEVEMENTS</h2></v-card-title>
+                      <div class="h2p  primary--text" style="text-align: center;">AWARDS & ACHIEVEMENTS</div>
                       <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
                     </v-card>
                   </v-flex>
                 </v-layout>
 
-            <v-layout row wrap class="mt-15" align="left">
+            <v-layout  row wrap :class="$vuetify.breakpoint.xs ? 'mt-7' : 'mt-15'" align="left">
                   <v-flex xs12>
                    <v-timeline
                       
@@ -477,7 +484,7 @@
                         v-for="e in profileData.awards"
                         :key="e.name"
                       >
-                        <span slot="opposite" style="font-size: small;">{{e.year}}</span>
+                        <span :slot="$vuetify.breakpoint.xs ? '' : 'opposite'" style="font-size: small;">{{e.year}}</span>
                         <v-expansion-panels flat>
                           <v-expansion-panel >
                             <v-expansion-panel-header >
@@ -521,12 +528,12 @@
                 <v-layout row wrap>
                   <v-flex xs12>
                     <v-card flat>
-                      <v-card-title  class="justify-center mb-60"><h2 class="mb-20 primary--text">EXTRA-CURICULAR ACTIVITIES</h2></v-card-title>
+                      <div class="h2p  primary--text" style="text-align: center;">EXTRA-CURICULAR ACTIVITIES</div>
                       <div class="horizontal-line"><div class="top"></div><div class="bottom"></div></div>
                     </v-card>
                   </v-flex>
                 </v-layout>
-                <v-layout row wrap class="mt-15" align="center">
+                <v-layout row wrap class=" pl-5" align="center">
                         <v-flex xs12 md12 >
                            
                            <v-list dense>
@@ -561,7 +568,7 @@
       </v-card>
  
     </v-container>
-   <br/><br/><br/><br/><br/>
+   <br/><br/><br/><br/><br/><br/><br/>
   </div>
 
  
@@ -609,29 +616,61 @@ export default {
     white-space: normal !important;
 }
 
+.h2p{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+}
 
-
-:root {
+@media (min-width: 479px) {
+    :root {
   --timeline-opposite-item-width: 160px !important;
   --timeline-line-width: 8px !important;
+  }
+
+  .v-timeline--dense .v-timeline-item__opposite {
+    display: inline-block !important;
+  }
+
+  .v-timeline-item__opposite {
+    flex: none !important;
+    min-width: var(--timeline-opposite-item-width) !important;
+  }
+
+  /* line: divider in the middle is 96px wide by default */
+  .v-application--is-ltr .v-timeline--dense:not(.v-timeline--reverse):before {
+    left: calc(
+      var(--timeline-opposite-item-width) + 
+      (100px - var(--timeline-line-width)) / 2
+    ) !important;
+  }
 }
 
-.v-timeline--dense .v-timeline-item__opposite {
-  display: inline-block !important;
+@media (max-width: 479px) {
+  .v-expansion-panel-header {
+    padding: 0px !important;
+  }
+
+  .v-expansion-panel-content__wrap {
+      padding: 0px  !important; 
+      
+  }
+
+  .v-list-item {
+     padding-left: 0 !important; 
+     padding-right: 20px;
 }
 
-.v-timeline-item__opposite {
-  flex: none !important;
-  min-width: var(--timeline-opposite-item-width) !important;
+  .v-application--is-ltr .v-list-item__action:first-child, .v-application--is-ltr .v-list-item__icon:first-child {
+    margin-right: 0px !important;
 }
 
-/* line: divider in the middle is 96px wide by default */
-.v-application--is-ltr .v-timeline--dense:not(.v-timeline--reverse):before {
-  left: calc(
-    var(--timeline-opposite-item-width) + 
-    (96px - var(--timeline-line-width)) / 2
-  ) !important;
-  width: var(--timeline-line-width) !important;
+
+.h2p{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 }
 
 

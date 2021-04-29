@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container >
       
       <v-app-bar
       color="primary"
@@ -7,9 +7,10 @@
       shrink-on-scroll
       :src="`${this.$route.path}.jpg`"
       fade-img-on-scroll
-      height="250"
+      :height="$vuetify.breakpoint.xs ? 100 : 250"
       prominent 
       app
+      
       
     >
       <template v-slot:img="{ props }">
@@ -23,12 +24,6 @@
         <v-toolbar-title class="mx-6 pb-2 accent--text font-weight-medium">Si-VERSE</v-toolbar-title>
         <br/>
          
-                                 
-                                
-                                
-        
-
-      
       </v-toolbar>
         
        
@@ -45,6 +40,7 @@
           <v-tab router to="/todo"  >To Do</v-tab>
           <v-tab router to="/blog"  >Blog</v-tab>
           <v-tab router to="/game"  >Games</v-tab>
+          
           
         </v-tabs>
       </template>
@@ -70,16 +66,30 @@
 
     }
   },methods: {
-    ChangeCoverPicture(prop) {
-      this.projects.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
-    }
     
-  }
+    
+  },
+  computed: {
+    
+      height () {
+        switch (this.$vuetify.breakpoint.name) {
+          case 'xs': return 100
+          case 'sm': return 150
+          case 'md': return 250
+          case 'lg': return 350
+          case 'xl': return 550
+        }
+        
+        return 550
+      },
+    },
   }
   
 </script>
 
 <style>
+
+
 
 .v-toolbar__content, .v-toolbar__extension {
      padding: 0px  !important;

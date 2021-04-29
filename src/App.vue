@@ -10,7 +10,7 @@
   
 
 
-      <v-container  >
+      <v-container >
         <v-content class="mx-4 mb-4">
           <router-view></router-view>
         </v-content>
@@ -30,8 +30,7 @@ import Footer from './components/Footer.vue'
 export default {
   name: 'App',
   components: {
-    Header,
-    Footer
+    Header,Footer
   },
   data() {
     return {
