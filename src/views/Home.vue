@@ -596,7 +596,7 @@ export default {
   },
    methods:{
     async fetchRegisters(){
-      const res = await fetch('http://10.54.79.34:3000/profile')
+      const res = await fetch('https://arcane-savannah-95240.herokuapp.com/profile')
       var data = await res.json() 
       return data
     }
