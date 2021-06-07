@@ -43,7 +43,6 @@
     name: 'Header',
       data: () => ({
       icons: [
-        {url:'https://twitter.com/shanmukhams', icon:'mdi-twitter'},
         {url:'https://www.linkedin.com/in/shanmukha-m-s/', icon:'mdi-linkedin'},
         {url:'https://www.instagram.com/shaan_gowda_ms/', icon:'mdi-instagram'},
         {url:'https://github.com/shanmukhams', icon:'mdi-github'},
